@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 702 372" role="img" aria-label="">
+  <defs>
+    <linearGradient id="heroRibbon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe94f"/>
+      <stop offset="1" stop-color="#ffd929"/>
+    </linearGradient>
+    <linearGradient id="heroBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f4acf"/>
+      <stop offset="1" stop-color="#1c46cb"/>
+    </linearGradient>
+    <filter id="catchShadow" x="-8%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#17284a" flood-opacity=".16"/>
+    </filter>
+  </defs>
+
+  <path d="M17 37 403 6l-16 43 17 30L19 93l15-31Z" fill="url(#heroRibbon)"/>
+  <text x="53" y="68" textLength="314" lengthAdjust="spacingAndGlyphs" fill="#18191c"
+    transform="rotate(-4 210 50)"
+    font-family="Noto Sans JP, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif"
+    font-size="32" font-weight="900">新居・引越し先の電気</text>
+
+  <g transform="rotate(-3 351 222)" filter="url(#catchShadow)">
+    <text x="29" y="160" textLength="428" lengthAdjust="spacingAndGlyphs" fill="#18191c"
+      font-family="Noto Sans JP, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif"
+      font-size="85" font-weight="900">引越したら、</text>
+
+    <text x="28" y="285" textLength="356" lengthAdjust="spacingAndGlyphs" fill="url(#heroBlue)"
+      font-family="Noto Sans JP, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif"
+      font-size="126" font-weight="900">電気を</text>
+
+    <ellipse cx="466" cy="219" rx="58" ry="61" fill="url(#heroBlue)"/>
+    <g transform="translate(0 6) translate(466 213) scale(.8) translate(-466 -213)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="12">
+      <path d="M466 162v58"/>
+      <path d="M439 186a40 40 0 1 0 54 0"/>
+    </g>
+    <text x="0" y="274" transform="translate(529 0) scale(.785 1)" fill="url(#heroBlue)"
+      font-family="Arial Black, Helvetica Neue, Arial, sans-serif"
+      font-size="160" font-weight="900" letter-spacing="-6">N</text>
+    <circle cx="654" cy="254" r="13" fill="none" stroke="#1d48cd" stroke-width="8"/>
+
+    <text x="28" y="337" textLength="562" lengthAdjust="spacingAndGlyphs" fill="#18191c" transform="rotate(-.8 300 337)"
+      font-family="Noto Sans JP, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif"
+      font-size="28" font-weight="900">新居の電気開始・停止後の再開をまとめて受付</text>
+  </g>
+</svg>
