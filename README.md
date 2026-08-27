@@ -1,28 +1,30 @@
-# MOVE ON LP — GitHub Pages公開用
+# MOVE ON LP — Cloudflare Pages公開用
 
-このフォルダは、GitHub Pagesへそのまま配置できる静的サイト一式です。
+このフォルダは、GitHubリポジトリとCloudflare Pagesを接続して公開する静的サイト一式です。
 
 ## 公開方法
 
 1. GitHubで新しいリポジトリを作成します。
 2. このフォルダの**中身すべて**をリポジトリ直下へアップロードします。
-3. リポジトリの GitHub Pages 設定で、公開元に `main` ブランチのルートを指定します。
-4. 公開後に表示されるURLへアクセスし、画像・フォーム・モーダルを確認します。
+3. Cloudflare PagesでGitHubリポジトリを接続します。
+4. Production branchを `main`、Build commandを `exit 0`、Build output directoryを `.` に設定します。
+5. 公開後に表示されるURLへアクセスし、画像・フォーム・モーダルを確認します。
 
 `index.html` が必ずリポジトリ直下にある状態にしてください。
 
 ## フォーム送信について
 
-現在、`index.html` のフォームにある `data-webhook-url` は空です。そのため入力確認までは動作しますが、外部へデータは送信しません。
+`index.html` のフォームにはZapier Catch Hookの送信先を設定済みです。送信データはフォームエンコード形式で、開通希望日・氏名・電話番号・住所・希望サービス・流入モード・送信ページURL・送信日時を送ります。
 
-Webhookを設定するときは、次の箇所へHTTPS URLを指定してください。
+送信先を変更するときは、次の属性を新しいHTTPS URLへ変更してください。
 
 ```html
-<form id="application-form" data-webhook-url="https://example.com/webhook">
+<form id="application-form" data-webhook-url="https://hooks.example.com/your-webhook/">
 ```
 
-- Webhook側でGitHub Pagesの公開元ドメインをCORS許可してください。
-- APIキーや秘密情報をHTML・JavaScriptへ直接記載しないでください。
+- 公開前にZapierでテストデータを1件受信し、項目マッピングを確認してください。
+- Webhook URLは静的HTMLから閲覧できるため、将来はCloudflare Pages FunctionとSecretを使った中継への移行を推奨します。
+- APIキーなどWebhook URL以外の秘密情報はHTML・JavaScriptへ記載しないでください。
 
 ## 公開URL確定後の推奨設定
 

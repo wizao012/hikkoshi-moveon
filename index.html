@@ -62,6 +62,24 @@
           <ul class="mini-benefits" aria-label="電気開通の特徴"><li><svg aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#document"></use></svg>書類・印鑑不要</li><li><svg aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#calendar"></use></svg>当日相談OK</li><li><svg aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#no-person"></use></svg>立ち会い原則不要</li></ul>
         </div>
 
+        <aside class="cashback-campaign container" aria-label="キャッシュバックキャンペーン">
+          <a class="cashback-campaign__link" href="#contact" data-service-bundle aria-label="電気・ガス・ネットまとめて手配で最大7万円キャッシュバックキャンペーン。対象サービスを選んでWEB申込みフォームへ">
+            <span class="cashback-campaign__icons" aria-hidden="true">
+              <span><svg><use href="assets/simple-icons.svg?v=20260826-2#electric"></use></svg></span>
+              <span><svg><use href="assets/simple-icons.svg?v=20260826-2#gas"></use></svg></span>
+              <span><svg><use href="assets/simple-icons.svg?v=20260826-2#wifi"></use></svg></span>
+            </span>
+            <span class="cashback-campaign__copy">
+              <span class="cashback-campaign__services">電気・ガス・ネット</span>
+              <span class="cashback-campaign__lead">まとめて手配で</span>
+              <strong class="cashback-campaign__amount"><span>最大</span><b>7</b><em>万円</em></strong>
+              <span class="cashback-campaign__title">キャッシュバックキャンペーン</span>
+            </span>
+            <span class="cashback-campaign__arrow" aria-hidden="true">›</span>
+          </a>
+          <small class="cashback-campaign__note">※特典の適用には条件があります。金額は対象サービス・申込内容により異なります。</small>
+        </aside>
+
         <div class="hero-apply surface-card">
           <p class="apply-heading">引越し電気開通のお申し込み</p><p class="apply-free">相談・お申し込みは無料です</p>
           <div class="action-stack">
@@ -177,8 +195,8 @@
       </section>
 
       <section id="contact" class="contact-section blend-section" aria-labelledby="contact-title">
-        <div class="container contact-intro"><p class="ribbon">WEB申込み</p><h2 id="contact-title">引越し先の電気を<br><strong>今すぐ<span class="power-letter"><svg class="power-o" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9v38"/><path d="M27 28a37 37 0 1 0 46 0"/></svg><span class="power-n" aria-hidden="true">N</span><span class="sr-only">ON</span></span>。</strong></h2><p>都市ガス・インターネットの希望も一緒に選べます。</p></div>
-        <form id="application-form" class="form-card container" data-webhook-url="" novalidate>
+        <div class="container contact-intro"><p class="ribbon">WEB申込み</p><h2 id="contact-title">引越し先の電気を<br><strong>今すぐ<span class="power-letter"><svg class="power-o" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9v38"/><path d="M27 28a37 37 0 1 0 46 0"/></svg><span class="power-n" aria-hidden="true">N</span><span class="sr-only">ON</span></span>。</strong></h2><p>ガス・インターネット（Wi‑Fi）の希望も一緒に選べます。</p></div>
+        <form id="application-form" class="form-card container" data-webhook-url="https://hooks.zapier.com/hooks/catch/12525485/4hyfd7i/" novalidate>
           <div class="form-title-row"><h3>電気開通・<br>ライフライン申込みフォーム</h3><span class="form-time">約<b>30</b>秒</span></div>
           <div class="field-group"><label for="opening-date"><svg class="field-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#calendar"></use></svg><span>電気の<br>開通希望日 <b>必須</b></span></label><div class="field-control"><input id="opening-date" type="date" name="openingDate" required aria-describedby="opening-date-help opening-date-error"><small id="opening-date-help">本日以降の日付を選択してください。</small><p class="field-error" id="opening-date-error" aria-live="polite"></p></div></div>
           <div class="field-group"><label for="name"><svg class="field-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#person"></use></svg><span>お名前 <b>必須</b></span></label><div class="field-control"><input id="name" type="text" name="name" autocomplete="name" placeholder="例）山田 太郎" required><p class="field-error" id="name-error" aria-live="polite"></p></div></div>
@@ -186,10 +204,10 @@
           <div class="field-group"><label for="address"><svg class="field-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#pin"></use></svg><span class="field-label-address"><span>引越し先住所</span><b>必須</b></span></label><div class="field-control"><input id="address" type="text" name="address" autocomplete="street-address" placeholder="都道府県・市区町村・番地" required><p class="field-error" id="address-error" aria-live="polite"></p></div></div>
           <fieldset class="service-options"><legend>あわせて希望するサービス</legend>
             <label class="service-option electric-option"><input type="checkbox" checked disabled><input type="hidden" name="electric" value="希望する"><span class="option-state">✓</span><span class="option-tag required-tag">必須</span><svg class="flat-icon option-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#electric"></use></svg><strong>電気開通</strong></label>
-            <label class="service-option"><input type="checkbox" name="gas" value="希望する"><span class="option-state">✓</span><span class="option-tag">任意</span><svg class="flat-icon option-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#gas"></use></svg><strong>都市ガス</strong></label>
-            <label class="service-option"><input type="checkbox" name="internet" value="希望する"><span class="option-state">✓</span><span class="option-tag">任意</span><svg class="flat-icon option-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#wifi"></use></svg><strong>インターネット</strong></label>
+            <label class="service-option"><input type="checkbox" name="gas" value="希望する"><span class="option-state">✓</span><span class="option-tag">任意</span><svg class="flat-icon option-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#gas"></use></svg><strong>ガス</strong></label>
+            <label class="service-option"><input type="checkbox" name="internet" value="希望する"><span class="option-state">✓</span><span class="option-tag">任意</span><svg class="flat-icon option-icon" aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#wifi"></use></svg><strong>インターネット<br><span>Wi‑Fi</span></strong></label>
           </fieldset>
-          <button class="submit-button action-button action-web" type="submit"><span class="action-icon" aria-hidden="true"><svg><use href="assets/simple-icons.svg?v=20260826-2#contract"></use></svg></span><span class="action-copy"><strong>入力内容を確認する</strong><b>この画面ではまだ送信されません</b></span></button>
+          <button class="submit-button action-button action-web" type="submit"><span class="action-icon" aria-hidden="true"><svg><use href="assets/simple-icons.svg?v=20260826-2#contract"></use></svg></span><span class="action-copy"><strong>申し込み内容を送信する</strong><b>入力内容をご確認ください</b></span></button>
           <p class="privacy-note">送信により<a href="https://hikkoshi-1sp.jp/Privacy%20policy" target="_blank" rel="noopener">プライバシーポリシー</a>へ同意したものとみなします。</p><div id="form-notice" class="form-notice" role="status" aria-live="polite"></div>
         </form>
         <div class="contact-phone container cta-phone"><p>電話で電気を開通</p><a href="tel:05017916397"><svg aria-hidden="true"><use href="assets/simple-icons.svg?v=20260826-2#phone"></use></svg><strong>050-1791-6397</strong><small>お急ぎの方は優先受付　10:00〜19:00</small></a></div>

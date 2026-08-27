@@ -83,6 +83,27 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .mini-benefits li:last-child { border-right: 0; }
 .mini-benefits svg { flex: 0 0 auto; width: clamp(19px, 4.5cqw, 28px); height: clamp(19px, 4.5cqw, 28px); }
 
+.cashback-campaign { margin-top: clamp(14px, 3.5cqw, 23px); text-align: center; }
+.cashback-campaign__link { position: relative; isolation: isolate; display: grid; grid-template-columns: clamp(54px, 14cqw, 88px) minmax(0, 1fr) clamp(16px, 4cqw, 25px); min-height: clamp(138px, 31cqw, 198px); align-items: center; gap: clamp(8px, 2cqw, 13px); overflow: hidden; padding: clamp(14px, 3.4cqw, 22px) clamp(11px, 2.8cqw, 18px); border: 2px solid rgba(255,255,255,.92); border-radius: clamp(20px, 4.8cqw, 31px); color: #fff; background: radial-gradient(circle at 92% 10%, rgba(255,212,0,.34), transparent 28%), linear-gradient(135deg, #0645bc 0%, #0875ed 48%, #06a5ae 100%); box-shadow: inset 0 2px 0 rgba(255,255,255,.28), 0 7px 0 #033992, 0 16px 30px rgba(4,56,137,.23); text-decoration: none; transition: transform .16s ease, filter .16s ease, box-shadow .16s ease; }
+.cashback-campaign__link::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .28; background: radial-gradient(circle at 12% 22%, #fff 0 2px, transparent 3px), radial-gradient(circle at 84% 76%, #fff 0 2px, transparent 3px); background-size: 32px 32px, 41px 41px; }
+.cashback-campaign__link:hover { transform: translateY(-2px); filter: saturate(1.07); }
+.cashback-campaign__link:active { transform: translateY(3px); box-shadow: inset 0 2px 0 rgba(255,255,255,.22), 0 3px 0 #033992, 0 9px 18px rgba(4,56,137,.18); }
+.cashback-campaign__link:focus-visible { outline: 4px solid var(--yellow); outline-offset: 3px; }
+.cashback-campaign__icons { display: grid; gap: clamp(4px, 1.2cqw, 8px); }
+.cashback-campaign__icons span { display: grid; width: clamp(38px, 9.5cqw, 60px); aspect-ratio: 1; place-items: center; border: 1px solid rgba(255,255,255,.88); border-radius: 50%; background: rgba(255,255,255,.96); box-shadow: 0 5px 13px rgba(0,42,119,.18); }
+.cashback-campaign__icons svg { width: 68%; height: 68%; color: var(--blue); }
+.cashback-campaign__icons span:nth-child(2) svg { color: var(--teal-dark); }
+.cashback-campaign__copy { display: grid; min-width: 0; justify-items: center; line-height: 1; }
+.cashback-campaign__services { padding: .35em 1em; border-radius: 999px; color: #10203b; background: var(--yellow); box-shadow: 0 4px 0 rgba(167,124,0,.45); white-space: nowrap; font-size: clamp(12px, 3cqw, 19px); font-weight: 950; letter-spacing: .03em; }
+.cashback-campaign__lead { margin-top: clamp(8px, 1.8cqw, 12px); white-space: nowrap; font-size: clamp(14px, 3.4cqw, 22px); font-weight: 950; }
+.cashback-campaign__amount { display: inline-flex; align-items: baseline; justify-content: center; margin-top: -2px; white-space: nowrap; font-style: normal; line-height: .92; }
+.cashback-campaign__amount span { margin-right: .22em; padding: .2em .4em; border: 1px solid rgba(255,255,255,.8); border-radius: .45em; font-size: clamp(11px, 2.7cqw, 17px); }
+.cashback-campaign__amount b { color: var(--yellow); text-shadow: 0 3px 0 #9b7100, 0 7px 16px rgba(0,30,84,.28); font-size: clamp(53px, 13cqw, 83px); font-weight: 950; letter-spacing: -.08em; }
+.cashback-campaign__amount em { color: var(--yellow); font-size: clamp(24px, 5.9cqw, 38px); font-weight: 950; font-style: normal; }
+.cashback-campaign__title { margin-top: 2px; white-space: nowrap; font-size: clamp(13px, 3.15cqw, 20px); font-weight: 950; letter-spacing: -.02em; }
+.cashback-campaign__arrow { font-size: clamp(31px, 7cqw, 45px); font-weight: 950; }
+.cashback-campaign__note { display: block; margin: clamp(9px, 2cqw, 13px) 4px 0; color: #536174; font-size: clamp(10px, 2.2cqw, 13px); line-height: 1.55; }
+
 .hero-apply { width: calc(100% - clamp(28px, 6cqw, 40px)); margin: clamp(14px, 3cqw, 22px) auto 0; padding: clamp(18px, 4cqw, 26px); }
 .apply-heading { margin: 0; color: var(--blue); text-align: center; font-size: clamp(20px, 5.1cqw, 32px); font-weight: 950; letter-spacing: .04em; }
 .apply-heading::before, .apply-heading::after { content: "＼"; }
@@ -304,6 +325,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .required-tag { background: var(--yellow); }
 .option-icon { width: clamp(52px, 12cqw, 77px); height: clamp(52px, 12cqw, 77px); }
 .service-option strong { font-size: clamp(13px, 3.2cqw, 20px); font-weight: 950; line-height: 1.25; text-align: center; }
+.service-option strong span { display: inline-block; margin-top: .08em; }
 .submit-button { width: 100%; border: 2px solid #fff; }
 .submit-button:disabled { cursor: wait; filter: grayscale(.25); opacity: .75; }
 .privacy-note { margin: 15px 0 0; text-align: center; font-size: clamp(11px, 2.4cqw, 14px); line-height: 1.6; }
@@ -413,6 +435,13 @@ body.web-primary-mode .priority-popup { display: none !important; }
   .faq-copy { right: 23%; }
   .field-group { grid-template-columns: 104px 1fr; }
   .sticky-button b { font-size: 12px; }
+}
+
+@media (max-width: 350px) {
+  .cashback-campaign__link { grid-template-columns: 48px minmax(0, 1fr) 14px; gap: 6px; padding-inline: 9px; }
+  .cashback-campaign__icons span { width: 34px; }
+  .cashback-campaign__services { font-size: 11px; }
+  .cashback-campaign__title { font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

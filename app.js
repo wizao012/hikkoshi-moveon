@@ -131,6 +131,7 @@
   const phoneInput = document.getElementById('phone');
   const notice = document.getElementById('form-notice');
   const submitButton = form?.querySelector('.submit-button');
+  let formSubmitted = false;
   const today = new Date();
   const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
 
@@ -139,6 +140,15 @@
       const service = link.dataset.serviceSelect;
       const option = form?.querySelector(`input[type="checkbox"][name="${service}"]`);
       if (option && !option.disabled) option.checked = true;
+    });
+  });
+
+  document.querySelectorAll('[data-service-bundle]').forEach((link) => {
+    link.addEventListener('click', () => {
+      ['gas', 'internet'].forEach((name) => {
+        const option = form?.querySelector(`input[type="checkbox"][name="${name}"]`);
+        if (option && !option.disabled) option.checked = true;
+      });
     });
   });
 
@@ -189,6 +199,7 @@
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (formSubmitted) return;
     notice.classList.remove('is-visible', 'is-error');
     validateDate();
     validatePhone();
@@ -201,16 +212,23 @@
     if (!form.reportValidity()) return;
 
     const webhookUrl = form.dataset.webhookUrl?.trim();
+    const selectedGas = form.elements.gas.checked;
+    const selectedInternet = form.elements.internet.checked;
+    const selectedServices = ['電気'];
+    if (selectedGas) selectedServices.push('ガス');
+    if (selectedInternet) selectedServices.push('インターネット Wi‑Fi');
     const payload = {
       openingDate: dateInput.value,
       name: form.elements.name.value.trim(),
       phone: phoneInput.value.trim(),
       address: form.elements.address.value.trim(),
-      services: {
-        gas: form.elements.gas.checked,
-        internet: form.elements.internet.checked
-      },
-      routeMode: activeRouteMode
+      electric: '希望する',
+      gas: selectedGas ? '希望する' : '希望しない',
+      internetWifi: selectedInternet ? '希望する' : '希望しない',
+      selectedServices: selectedServices.join(' / '),
+      routeMode: activeRouteMode,
+      pageUrl: window.location.href,
+      submittedAt: new Date().toISOString()
     };
 
     if (!webhookUrl) {
@@ -225,19 +243,23 @@
     try {
       const response = await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: new URLSearchParams(payload)
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      formSubmitted = true;
       notice.textContent = 'お申し込みを受け付けました。担当者からの連絡をお待ちください。';
       notice.classList.add('is-visible');
+      const submitLabel = submitButton.querySelector('.action-copy strong');
+      const submitSubLabel = submitButton.querySelector('.action-copy b');
+      if (submitLabel) submitLabel.textContent = '送信を受け付けました';
+      if (submitSubLabel) submitSubLabel.textContent = '担当者からの連絡をお待ちください';
     } catch (error) {
       notice.textContent = '送信できませんでした。入力内容は保持されています。時間をおいて再度お試しください。';
       notice.classList.add('is-visible', 'is-error');
       console.error('Webhook submission failed:', error);
     } finally {
-      submitButton.disabled = false;
       submitButton.removeAttribute('aria-busy');
+      if (!formSubmitted) submitButton.disabled = false;
       notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   });
