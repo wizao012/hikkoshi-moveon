@@ -50,6 +50,13 @@ app.js
 robots.txt
 sitemap.xml
 CNAME
+favicon.ico
+favicon-48x48.png
+apple-touch-icon.png
+icon-192.png
+icon-512.png
+icon-maskable-512.png
+site.webmanifest
 assets/
 power-company-contacts/
   index.html
@@ -59,5 +66,14 @@ power-company-contacts/
 旧デザイン、参照画像、作業用バックアップは公開パッケージから除外しています。
 
 表示用の写真・ロゴ・バナーはWebPへ最適化済みです。SNS共有画像は互換性を優先して `og-v3.jpg` を使用しています。
+
+ファビコンとホーム画面アイコンは、承認済みMOVE ONロゴの「家＋電源」マークから作成しています。
+
+Google広告のロゴアセットには次の最適化済みPNGを使用してください。どちらも重要部分を中央の安全領域へ配置し、150KB未満に圧縮しています。
+
+- `assets/google-ads-logo-square-1200.png`：正方形ロゴ 1:1、1200×1200、約118KB
+- `assets/google-ads-logo-landscape-1200x300.png`：横長ロゴ 4:1、1200×300、約47KB
+
+`assets/moveon-icon-v1.png` と `assets/moveon-icon-v1-white.png` は高品質なロゴアイコンマスターとして保持しています。
 
 `power-company-contacts/` は、地域電力会社10社の公式電話・WEB窓口をまとめた「その他のお問い合わせ」用ページです。電話番号や受付時間は変更される可能性があるため、定期的に各社公式ページと照合してください。
