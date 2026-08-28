@@ -28,6 +28,8 @@ main>section:not(.hero){width:calc(100% - clamp(26px,7vw,54px));margin-inline:au
 .jump-nav p{margin:0 0 11px;color:var(--blue);font-size:14px;font-weight:900}
 .jump-nav div{display:flex;flex-wrap:wrap;gap:8px}
 .jump-nav a{flex:1 1 76px;padding:8px 9px;border:1px solid #c4d9f4;border-radius:999px;color:#0750c7;background:#fff;text-align:center;font-size:12px;font-weight:850;text-decoration:none}
+.jump-nav a,.back-link,.official-links a,.return-button{min-height:44px}
+.jump-nav a:focus-visible,.back-link:focus-visible,.official-links a:focus-visible,.return-button:focus-visible,.contact-box li a:focus-visible,footer a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 .directory{padding:clamp(45px,10vw,70px) 0}
 .section-heading{margin-bottom:24px;text-align:center}
 .section-heading p{margin:0;color:var(--teal);font-size:12px;font-weight:900;letter-spacing:.16em}
@@ -43,7 +45,7 @@ main>section:not(.hero){width:calc(100% - clamp(26px,7vw,54px));margin-inline:au
 .contact-box ul{display:grid;gap:9px;margin:0;padding:0;list-style:none}
 .contact-box li{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .contact-box li span{color:#536174;font-size:12px;font-weight:750;line-height:1.35}
-.contact-box li a{flex:0 0 auto;color:#064fc8;font-size:clamp(17px,4.5vw,23px);font-weight:950;letter-spacing:.02em;text-decoration:none}
+.contact-box li a{display:inline-flex;min-height:44px;align-items:center;flex:0 0 auto;color:#064fc8;font-size:clamp(17px,4.5vw,23px);font-weight:950;letter-spacing:.02em;text-decoration:none}
 .contact-box>p{margin:9px 0 0;color:#66768a;font-size:11px;line-height:1.55}
 .contract{border:1px solid #bfd8fa;background:#f3f8ff}
 .contract h3{color:var(--blue)}

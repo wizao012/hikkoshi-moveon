@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hikkoshi-moveon.com/sitemap.xml
