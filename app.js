@@ -178,7 +178,9 @@
 
   document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
     link.addEventListener('click', () => pushDataLayer('click_to_call', {
+      conversion_type: 'phone_click',
       phone_number: link.getAttribute('href')?.replace('tel:', '') || '',
+      page_path: window.location.pathname,
       route_mode: activeRouteMode,
       cta_location: link.closest('.sticky-cta') ? 'sticky'
         : link.closest('#top') ? 'hero'
@@ -327,6 +329,9 @@
       form.removeAttribute('aria-busy');
       document.body.classList.add('form-complete');
       pushDataLayer('generate_lead', {
+        conversion_type: 'web_form',
+        cta_location: 'contact',
+        form_id: 'application-form',
         submission_id: submissionId,
         selected_services: selectedServices.join(' / '),
         route_mode: activeRouteMode,
@@ -369,7 +374,16 @@
     setRouteMode(routeMode);
     addFaqStructuredData();
     resetReloadScroll();
-    if (routeMode === 'normal') openRouteDialog();
+    // Keep the new FV visible on arrival; the footer still opens the route dialog.
+    const fvCard = document.querySelector('.fv-card');
+    if (fvCard && 'IntersectionObserver' in window) {
+      const fvObserver = new IntersectionObserver(([entry]) => {
+        document.body.classList.toggle('fv-in-view', entry.isIntersecting);
+      });
+      fvObserver.observe(fvCard);
+    } else {
+      document.body.classList.remove('fv-in-view');
+    }
   }, { once: true });
   window.addEventListener('pageshow', () => {
     setRouteMode(isReloadNavigation ? 'normal' : getRouteMode());
