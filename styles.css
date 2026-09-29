@@ -526,3 +526,16 @@ body.fv-in-view .sticky-cta { visibility: hidden; pointer-events: none; }
 .fv-cta-pop em { color: #ffef00; font-style: normal; }
 
 .fv-actions { margin-top: 7.5cqw; }
+
+/* Phone clicks outside 10:00–19:00 JST guide visitors to the WEB form. */
+.phone-hours-dialog { width: min(calc(100% - 24px), 500px); }
+.phone-hours-dialog .modal-inner { padding-top: 58px; }
+.phone-hours-dialog .route-kicker { color: #536a86; font-size: clamp(12px, 3vw, 14px); }
+.phone-hours-icon { display: grid; place-items: center; width: 70px; height: 70px; margin: 8px auto 16px; border-radius: 50%; color: #008da6; background: #e7f9fc; }
+.phone-hours-icon svg { width: 42px; height: 42px; }
+.phone-hours-dialog .phone-hours-schedule { margin: 16px 0; padding: 10px 5px; border-radius: 12px; color: #315479; background: #edf6ff; font-size: clamp(12px, 3.3vw, 16px); font-weight: 800; }
+.phone-hours-dialog .phone-hours-lead { margin: 0; color: #536a86; font-size: clamp(13px, 3.5vw, 16px); line-height: 1.8; }
+.phone-hours-dialog .phone-hours-web { min-height: 82px; gap: 10px; margin-top: 24px; padding: 16px 12px; border-radius: 18px; }
+.phone-hours-web .action-icon { width: clamp(34px, 9vw, 48px); height: clamp(34px, 9vw, 48px); }
+.phone-hours-web .action-copy strong { font-size: clamp(14px, 3.6vw, 19px); }
+.phone-hours-web .action-copy b { font-size: clamp(12px, 3.2vw, 16px); }

@@ -36,7 +36,7 @@
   <meta name="twitter:description" content="引越し先の電気開通を電話・WEBで全国受付。ガスやインターネット（Wi‑Fi）もまとめて相談できます。">
   <meta name="twitter:image" content="https://hikkoshi-moveon.com/assets/og-v3.jpg">
   <link rel="preload" as="image" href="assets/moveon-logo-v1.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260914-3">
+  <link rel="stylesheet" href="styles.css?v=20260929-1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -274,6 +274,21 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=20260914-1-20260901-1" defer></script>
+  <dialog id="phone-hours-dialog" class="route-dialog phone-hours-dialog" aria-labelledby="phone-hours-title" aria-describedby="phone-hours-lead phone-hours-schedule">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" aria-label="営業時間外の案内を閉じる"><span aria-hidden="true"></span></button>
+      <p class="route-kicker">電話受付時間外のご案内</p>
+      <div class="phone-hours-icon" aria-hidden="true"><svg><use href="assets/simple-icons.svg#form"></use></svg></div>
+      <h2 id="phone-hours-title">ただいま電話受付は<br><strong>営業時間外です</strong></h2>
+      <p id="phone-hours-schedule" class="phone-hours-schedule">電話受付：10:00〜19:00（日本時間）</p>
+      <p id="phone-hours-lead" class="phone-hours-lead">WEBフォームは365日24時間受付。<br>こちらからお申し込みいただけます。</p>
+      <a class="phone-hours-web action-button action-web" href="#contact" data-after-hours-web autofocus>
+        <span class="action-icon" aria-hidden="true"><svg><use href="assets/simple-icons.svg#form"></use></svg></span>
+        <span class="action-copy"><strong>WEBで電気開始を申し込む</strong><b>365日24時間受付</b></span>
+      </a>
+    </div>
+  </dialog>
+
+  <script src="app.js?v=20260929-1" defer></script>
 </body>
 </html>

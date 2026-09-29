@@ -2,6 +2,17 @@
   'use strict';
 
   const routeDialog = document.getElementById('route-dialog');
+  const phoneHoursDialog = document.getElementById('phone-hours-dialog');
+  const phoneReceptionClock = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Tokyo',
+    hour: '2-digit',
+    hourCycle: 'h23'
+  });
+  // Check on every click so an open page also respects the 10:00 / 19:00 boundaries.
+  const isPhoneReceptionOpen = () => {
+    const japanHour = Number(phoneReceptionClock.format(new Date()));
+    return japanHour >= 10 && japanHour < 19;
+  };
   const openRouteButtons = document.querySelectorAll('[data-open-route]');
   const closeRouteButton = routeDialog?.querySelector('.modal-close');
   const applyRouteButton = routeDialog?.querySelector('[data-route-apply]');
@@ -75,10 +86,10 @@
 
   const schedulePriorityPopup = () => {
     hidePriorityPopup();
-    if (priorityDismissed || activeRouteMode !== 'normal') return;
+    if (priorityDismissed || activeRouteMode !== 'normal' || !isPhoneReceptionOpen()) return;
     if (document.querySelector('dialog[open]')) return;
     priorityShowTimer = window.setTimeout(() => {
-      if (priorityDismissed || activeRouteMode !== 'normal' || document.querySelector('dialog[open]')) return;
+      if (priorityDismissed || activeRouteMode !== 'normal' || !isPhoneReceptionOpen() || document.querySelector('dialog[open]')) return;
       if (!priorityPopup) return;
       priorityPopup.hidden = false;
       window.requestAnimationFrame(() => priorityPopup.classList.add('is-visible'));
@@ -141,6 +152,18 @@
     hidePriorityPopup();
   });
   routeDialog?.addEventListener('close', schedulePriorityPopup);
+  phoneHoursDialog?.querySelector('.modal-close')?.addEventListener('click', () => phoneHoursDialog.close());
+  phoneHoursDialog?.addEventListener('click', (event) => {
+    if (event.target !== phoneHoursDialog) return;
+    const bounds = phoneHoursDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right
+      || event.clientY < bounds.top || event.clientY > bounds.bottom) phoneHoursDialog.close();
+  });
+  phoneHoursDialog?.addEventListener('close', schedulePriorityPopup);
+  phoneHoursDialog?.querySelector('[data-after-hours-web]')?.addEventListener('click', () => {
+    phoneHoursDialog.close();
+    window.requestAnimationFrame(() => document.getElementById('opening-date')?.focus({ preventScroll: true }));
+  });
 
   const form = document.getElementById('application-form');
   const dateInput = document.getElementById('opening-date');
@@ -177,21 +200,30 @@
   });
 
   document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
-    link.addEventListener('click', () => pushDataLayer('click_to_call', {
-      conversion_type: 'phone_click',
-      phone_number: link.getAttribute('href')?.replace('tel:', '') || '',
-      page_path: window.location.pathname,
-      route_mode: activeRouteMode,
-      cta_location: link.closest('.sticky-cta') ? 'sticky'
-        : link.closest('#top') ? 'hero'
-          : link.closest('.steps-section') ? 'steps'
-            : link.closest('.reasons-section') ? 'reasons'
-              : link.closest('.internet-section') ? 'internet'
-                : link.closest('.faq-section') ? 'faq'
-                  : link.closest('#contact') ? 'contact'
-                    : 'other',
-      cta_text: link.textContent.trim().replace(/\s+/g, ' ').slice(0, 80)
-    }));
+    link.addEventListener('click', (event) => {
+      const details = {
+        phone_number: link.getAttribute('href')?.replace('tel:', '') || '',
+        page_path: window.location.pathname,
+        route_mode: activeRouteMode,
+        cta_location: link.closest('.sticky-cta') ? 'sticky'
+          : link.closest('#top') ? 'hero'
+            : link.closest('.steps-section') ? 'steps'
+              : link.closest('.reasons-section') ? 'reasons'
+                : link.closest('.internet-section') ? 'internet'
+                  : link.closest('.faq-section') ? 'faq'
+                    : link.closest('#contact') ? 'contact'
+                      : 'other',
+        cta_text: link.textContent.trim().replace(/\s+/g, ' ').slice(0, 80)
+      };
+      if (!isPhoneReceptionOpen()) {
+        event.preventDefault();
+        hidePriorityPopup();
+        if (phoneHoursDialog && !phoneHoursDialog.open) phoneHoursDialog.showModal();
+        pushDataLayer('phone_after_hours', details);
+        return;
+      }
+      pushDataLayer('click_to_call', { conversion_type: 'phone_click', ...details });
+    });
   });
 
   if (dateInput) dateInput.min = localToday;
