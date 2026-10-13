@@ -1,11 +1,11 @@
 {
-  "name": "MOVE ON 引越し電気開通",
-  "short_name": "MOVE ON",
+  "name": "電気やガスの開始・開通｜MOVEON",
+  "short_name": "MOVEON",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f7fbff",
-  "theme_color": "#0755d9",
+  "theme_color": "#1762d1",
   "icons": [
     {
       "src": "icon-192.png",
@@ -25,5 +25,7 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "description": "電気やガスの開始・開通をWeb・電話で受付します。",
+  "lang": "ja"
 }
