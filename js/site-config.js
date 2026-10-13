@@ -1,0 +1,20 @@
+/* Change these shared values after reviewing the baseline preview. */
+window.LP_CONFIG = Object.freeze({
+  brand: '引越し手続き',
+  brandSubtitle: '電気・ガス開始受付センター',
+  contactCenter: '引越し手続き受付窓口',
+  operatorName: '株式会社引越しワンストップ',
+  operatorUrl: 'https://hikkoshi-1sp.jp/',
+  phone: '050-5291-3072',
+  phonePlaceholder: '電話番号は準備中',
+  hours: '電話受付：10:00〜19:00',
+  phoneHoursStart: 10,
+  phoneHoursEnd: 19,
+  contractContactsUrl: 'https://hikkoshi-moveon.com/power-company-contacts/',
+  heroTitle: '電気・ガスの\n引越し手続き',
+  heroNote: '書類の記入や印鑑は不要です。',
+  production: true,
+  allowedHosts: ['hikkoshi-moveon.com', 'www.hikkoshi-moveon.com'],
+  submissionEndpoint: "https://hooks.zapier.com/hooks/catch/12525485/4hyfd7i/",
+  gtmContainerId: 'GTM-NSDBHPNR',
+});

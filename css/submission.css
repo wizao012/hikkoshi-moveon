@@ -1,0 +1,9 @@
+@charset "utf-8";
+.submission-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; }
+.submission-status { margin: 18px 0; color: #b7263b; font-size: 14px; line-height: 1.8; }
+.confirm-page__btn:disabled { opacity: .55; cursor: wait; }
+.thanks-receipt { display: block; margin-top: 20px; padding: 16px; border: 1px solid var(--fresh-line); border-radius: 12px; background: #edf6ff; font-size: 14px; line-height: 1.8; }
+.thanks-receipt[hidden] { display: none; }
+.thanks-receipt dt { font-weight: 700; }
+.thanks-receipt dd { margin: 0 0 10px; overflow-wrap: anywhere; }
+.thanks-page__btn { width: 240px; max-width: 100%; padding: 14px 24px; white-space: nowrap; }

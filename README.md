@@ -1,87 +1,29 @@
-# MOVE ON LP — GitHub Pages公開用
+# MOVEON 引越し受付LP
 
-このフォルダは、GitHub Pagesで公開し、Cloudflareで `hikkoshi-moveon.com` のDNSを管理する静的サイト一式です。
+電気・ガスの開始受付を案内する静的サイトです。GitHub Pagesの`main` / `/(root)`で公開し、正規ドメインは https://hikkoshi-moveon.com/ です。
 
-## 公開方法
+HTML・CSS・JavaScriptを直接配信するため、ビルドは不要です。`CNAME`と`.nojekyll`を維持してください。
 
-1. GitHubで新しいリポジトリを作成します。
-2. このフォルダの**中身すべて**をリポジトリ直下へアップロードします。
-3. GitHubの Settings → Pages で、公開元を `main` / `/(root)` に設定します。
-4. Custom domainへ `hikkoshi-moveon.com` を設定し、Cloudflare DNSをGitHub Pagesへ向けます。
-5. DNSと証明書が有効になったら Enforce HTTPS をONにします。
-6. 公開後に本番URLへアクセスし、画像・フォーム・モーダルを確認します。
+## 受付と計測
 
-`index.html` が必ずリポジトリ直下にある状態にしてください。
+電話受付は050-5291-3072（日本時間10:00〜19:00）、Web受付は24時間です。フォームの受付先は現行MOVEONの設定を引き継ぎ、HTTP成功応答後に受付番号を表示します。失敗時は入力を維持して再送できます。
 
-## フォーム送信について
+GTMは`GTM-NSDBHPNR`です。フォーム成功時は`generate_lead`、受付時間内の電話CTAは`click_to_call`、時間外は`phone_after_hours`を記録します。地域電力会社の窓口電話は広告の電話CVに含めません。本番ドメイン以外では実申込とGTMを実行しません。
 
-`index.html` のフォームにはZapier Catch Hookの送信先を設定済みです。送信データはフォームエンコード形式で、受付番号・開通希望日・氏名・電話番号・任意メールアドレス・希望サービス・流入モード・広告流入パラメータ・参照元・送信ページURL・送信日時を送ります。住所はフォームでは取得せず、互換用の `address` 項目へ「電話でヒアリング」を送ります。
+広告流入パラメータはページ間で保持します。既存送信項目に都道府県と`openingDateDeferred`を追加しています。ガスのみは`electric=希望しない`、日付を後日設定する場合は`openingDate`を空欄にします。Zapier後続処理でこれらの選択肢を扱えるかは受信側で確認してください。
 
-送信先を変更するときは、次の属性を新しいHTTPS URLへ変更してください。
+## ページ
 
-```html
-<form id="application-form" data-webhook-url="https://hooks.example.com/your-webhook/">
-```
+- `/`: 初期案内モーダル、縦型Web・電話CTA、追従CTA、全国向けFAQ
+- `/form/`: 6ステップ入力・確認・送信
+- `/form/thanks/`: 受付番号（送信成功後のみ）
+- `/faq/`: 18項目の折りたたみFAQ
+- `/company/`: 運営会社情報
+- `/privacy/`: 運営会社の個人情報窓口案内
+- `/power-company-contacts/`: ご契約中の地域電力会社の公式窓口一覧
 
-- 公開前にZapierでテストデータを1件受信し、項目マッピングを確認してください。
-- Zapierが正常応答した場合だけ、フォームを明確な送信完了画面へ切り替えます。失敗時は入力内容を保持して再送できます。
-- Webhook URLは静的HTMLから閲覧できるため、将来はCloudflare WorkerとSecretを使った中継への移行を推奨します。
-- APIキーなどWebhook URL以外の秘密情報はHTML・JavaScriptへ記載しないでください。
+## 検証と未確定事項
 
-## Google Tag Manager
+送信処理の14件のモックテストと、スマホのFV・確認/修正・失敗後の再送・成功後の受付番号のブラウザー検証を実施しました。実際の受付先へテスト申込は送信していません。
 
-全ページに `GTM-NSDBHPNR` を設置済みです。サイト側はWebhook成功後に `generate_lead`、電話リンクのクリック時に `click_to_call` を `dataLayer` へ送ります。
-
-- GTM管理画面でGA4／Google Adsタグとカスタムイベントトリガーを作成し、コンテナを公開してください。
-- フォームCVは `generate_lead` だけを利用し、GTMのフォーム送信トリガーと重複させないでください。
-- Google Adsのコンバージョンリンカーは全ページで発火させてください。
-- `power-company-contacts/` 内の電話クリックは、MOVE ONの有効リードCVから除外してください。
-
-## 電話受付時間外の案内（2026-09-29）
-
-MOVE ONの電話受付は毎日、日本時間10:00〜19:00です。10:00以上19:00未満は電話リンクで通常の発信画面へ進みます。時間外に電話リンクを押すと、営業時間とWEBフォームへのボタンを表示するモーダルが開きます。ページを開いたまま営業時間をまたいでも、クリック時点の時刻で判定します。
-
-時刻はブラウザの時計を `Asia/Tokyo` で判定します。時間外のクリックは `phone_after_hours` として記録し、`click_to_call` は営業時間内のクリックでのみ記録します。時間外のモーダルからWEB申込み後に送信が成功した場合は、既存の `generate_lead` を記録します。
-
-FV・本文・追従メニューの全8か所を確認済みです。地域電力会社一覧の連絡先は各社の窓口なので、この時間判定の対象外です。
-
-## 検索・SNS設定
-
-`canonical`、OG、Twitter Card、`robots.txt`、`sitemap.xml`、`CNAME` は `https://hikkoshi-moveon.com/` を正規URLとして設定済みです。正規URLを `www` に変更する場合は、これらをすべて同時に変更してください。
-
-## ファイル構成
-
-```text
-index.html
-styles.css
-app.js
-robots.txt
-sitemap.xml
-CNAME
-favicon.ico
-favicon-48x48.png
-apple-touch-icon.png
-icon-192.png
-icon-512.png
-icon-maskable-512.png
-site.webmanifest
-assets/
-power-company-contacts/
-  index.html
-  styles.css
-```
-
-旧デザイン、参照画像、作業用バックアップは公開パッケージから除外しています。
-
-表示用の写真・ロゴ・バナーはWebPへ最適化済みです。SNS共有画像は互換性を優先して `og-v3.jpg` を使用しています。
-
-ファビコンとホーム画面アイコンは、承認済みMOVE ONロゴの「家＋電源」マークから作成しています。
-
-Google広告のロゴアセットには次の最適化済みPNGを使用してください。どちらも重要部分を中央の安全領域へ配置し、150KB未満に圧縮しています。
-
-- `assets/google-ads-logo-square-1200.png`：正方形ロゴ 1:1、1200×1200、約118KB
-- `assets/google-ads-logo-landscape-1200x300.png`：横長ロゴ 4:1、1200×300、約47KB
-
-`assets/moveon-icon-v1.png` と `assets/moveon-icon-v1-white.png` は高品質なロゴアイコンマスターとして保持しています。
-
-`power-company-contacts/` は、地域電力会社10社の公式電話・WEB窓口をまとめた「その他のお問い合わせ」用ページです。電話番号や受付時間は変更される可能性があるため、定期的に各社公式ページと照合してください。
+運営会社が案内しているプライバシーポリシーURLは404です。`/privacy/`は連絡窓口の案内であり、正式な取扱条項は未反映です。有効な掲載URLまたは正式本文を入手した後に差し替えてください。この案内ページと受付完了画面はnoindexです。

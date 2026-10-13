@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+/* A light visual refresh. The reference layout and content live in style.css. */
+:root {
+  --fresh-blue: #1762d1;
+  --fresh-blue-dark: #124b9e;
+  --fresh-teal: #06818f;
+  --fresh-teal-dark: #056b78;
+  --fresh-ink: #26364c;
+  --fresh-line: #dce9f5;
+  --fresh-soft: #f0f8ff;
+  --fresh-shadow: 0 6px 22px rgb(25 83 144 / 6%);
+}
+
+.l-header {
+  background: #fff;
+  border-bottom-color: var(--fresh-line);
+}
+.l-header--mainTxt {
+  color: var(--fresh-blue);
+}
+.l-header--mainTxt > span {
+  color: var(--fresh-ink);
+  border-left-color: var(--fresh-line);
+}
+.top-main,
+.faq-page,
+.company-page,
+.form-page,
+.confirm-page,
+.thanks-page {
+  background: linear-gradient(180deg, #edf7ff 0, #f7fbff 520px, #f2f8fd 100%);
+}
+
+.top-mainVisual__title,
+.top-title,
+.faq-page__title,
+.company-page__title,
+.form-page__title,
+.confirm-page__title,
+.thanks-page__title,
+.top-flow__contentTitle {
+  color: var(--fresh-blue-dark);
+}
+.top-mainVisual__title {
+  letter-spacing: .025em;
+}
+.top-mainVisual__imgs {
+  justify-content: center;
+  gap: 56px;
+}
+@media screen and (min-width: 767px) {
+  .top-mainVisual__imgs {
+    gap: 80px;
+  }
+}
+.c-buttonPrimary__highlight {
+  background: #fff2a0;
+  color: #075a65;
+}
+
+.top-contact__newContractBlock,
+.top-contact__currentContractBlock,
+.top-contact__tel,
+.c-telCta,
+.company-page__items,
+.confirm-page__content,
+.thanks-page__content {
+  border-radius: 16px;
+  box-shadow: var(--fresh-shadow);
+}
+.top-contact__newContractBlock {
+  box-shadow: 0 8px 28px rgb(25 83 144 / 8%);
+}
+.top-contact__newContractTitle,
+.top-contact__currentContractTitle,
+.top-contact__telTitle,
+.c-telCta__title {
+  color: var(--fresh-ink);
+}
+
+.c-buttonPrimary,
+.form-page__confirmationBtn,
+.confirm-page__btn:not(.confirm-page__btn--back),
+.thanks-page__btn {
+  background: linear-gradient(135deg, var(--fresh-teal), var(--fresh-teal-dark));
+  box-shadow: 0 5px 13px rgb(5 107 120 / 13%);
+}
+.c-buttonPrimary,
+.top-contact__currentContractBtn,
+.top-contact__telCenterBtn,
+.c-buttonSecondary,
+.top-followingBtn__content,
+.form-page__formButtonWrap button,
+.form-page__formButtonWrap input,
+.form-page__confirmationBtn,
+.thanks-page__btn {
+  transition: box-shadow .18s ease, filter .18s ease;
+}
+.top-contact__currentContractBtn {
+  background: #f1f7ff;
+  color: var(--fresh-blue-dark);
+  border: 1px solid #c8def6;
+}
+.top-contact__telCenterBtn {
+  background: linear-gradient(135deg, #2272d3, var(--fresh-blue));
+  box-shadow: 0 4px 12px rgb(23 98 209 / 12%);
+}
+.top-contact__telDetailWrap > p,
+.c-telCta__number > p {
+  color: var(--fresh-blue-dark);
+}
+.top-flow__contentImg {
+  border-radius: 16px;
+  box-shadow: var(--fresh-shadow);
+}
+
+.c-faq__content {
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgb(25 83 144 / 4%);
+}
+.c-faq__que {
+  color: var(--fresh-ink);
+  border-radius: 14px 14px 0 0;
+}
+.c-faq__que::before {
+  background: #6c90b9;
+}
+.c-faq__ans {
+  background: #e9f3fd;
+  border-radius: 0 0 14px 14px;
+  line-height: 1.6;
+}
+.c-faq__ans::before {
+  background: var(--fresh-blue);
+}
+.c-buttonSecondary {
+  background: #fff;
+  color: var(--fresh-blue-dark);
+  border-color: #b9d4f2;
+  border-radius: 50px;
+}
+.c-buttonSecondary::after {
+  border-color: var(--fresh-blue-dark);
+}
+.top-followingBtn__content {
+  background: var(--fresh-blue);
+  border-radius: 50px;
+  box-shadow: 0 5px 16px rgb(23 98 209 / 15%);
+}
+.l-footer {
+  background: var(--fresh-blue-dark);
+}
+
+/* Carry the same restrained tone into the existing form and secondary pages. */
+.form-page__inputArea {
+  border-radius: 16px;
+  box-shadow: var(--fresh-shadow);
+}
+.form-page__formLabel {
+  background: #f2f7fc;
+  border-radius: 10px;
+}
+.form-page__formLabel::before {
+  border-right-color: #f2f7fc;
+}
+.form-page__formInputWrap {
+  background: #edf7ff;
+  border-radius: 10px;
+}
+.form-page__formInputWrap > input,
+.form-page__formInputWrap select,
+.form-page__formInputWrap--radio label,
+.form-page__radioTxt {
+  border-radius: 7px;
+}
+.form-page__formInputWrap--radio input:checked + .form-page__radioTxt,
+.form-page__formButtonWrap button,
+.form-page__formButtonWrap input,
+.form-page__progressLine > span.form-page__progressLineBlue {
+  background: var(--fresh-blue);
+}
+.form-page__formButtonWrap button,
+.form-page__formButtonWrap input {
+  border-color: var(--fresh-blue);
+  border-radius: 50px;
+}
+.form-page__progressLine > span.form-page__progressLineBlue::after {
+  border-top-color: var(--fresh-blue);
+}
+.form-page__progressCat > span.form-page__progressCatBlue {
+  color: var(--fresh-blue-dark);
+}
+.form-page__confirmationBtn,
+.confirm-page__btn,
+.thanks-page__btn {
+  border-radius: 50px;
+}
+.company-page__item:not(:first-of-type) {
+  border-top-color: var(--fresh-line);
+}
+
+/* No reference-company phone links are exposed before a new number is set. */
+.is-phone-pending .top-contact__telButtonWrap,
+.is-phone-pending .c-telCta__buttonWrap {
+  display: none;
+}
+.is-phone-pending .top-contact__telDetailWrap > p,
+.is-phone-pending .c-telCta__number > p {
+  font-size: 16px;
+}
+.is-phone-pending .top-contact__telDetailWrap {
+  justify-content: center;
+  gap: 10px;
+}
+.policy-page__note {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+@media (hover: hover) {
+  .c-buttonPrimary:hover,
+  .top-contact__currentContractBtn:hover,
+  .top-contact__telCenterBtn:hover,
+  .c-buttonSecondary:hover,
+  .top-followingBtn__content:hover,
+  .form-page__confirmationBtn.active:hover,
+  .thanks-page__btn:hover {
+    opacity: 1;
+    filter: brightness(1.05);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  a,
+  button,
+  input {
+    transition: none;
+  }
+}

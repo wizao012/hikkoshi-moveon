@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+.form-phone {
+  width: 100%;
+  max-width: 710px;
+  margin: 20px auto 0;
+  padding: 16px;
+  border: 1px solid var(--fresh-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--fresh-shadow);
+  text-align: center;
+}
+.form-phone__label {
+  margin-bottom: 10px;
+  color: var(--fresh-ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+.form-phone__button {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 13px 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d33449, #b7263b);
+  text-decoration: none;
+}
+.form-phone__button strong {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.form-phone__button small {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.form-phone__hours {
+  margin-top: 8px;
+  color: #617287;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.form-phone__button:focus-visible {
+  outline: 3px solid #eac742;
+  outline-offset: 3px;
+}
+.form-page__formWrap { margin-top: 24px; }
+.guidance-dialog__web { width: 100%; font-family: inherit; }
+.guidance-dialog__web > strong { font-size: 19px; }
+@media (max-width: 360px) {
+  .form-phone__button strong { font-size: 18px; }
+}
+@media (min-width: 767px) {
+  .form-phone { margin-top: 28px; padding: 20px; }
+  .form-phone__button strong { font-size: 22px; }
+  .form-page__formWrap { margin-top: 32px; }
+}
+@media (hover: hover) {
+  .form-phone__button:hover { filter: brightness(1.05); }
+}
