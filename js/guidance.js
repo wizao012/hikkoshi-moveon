@@ -1,4 +1,4 @@
-/* Local guidance UI only. No tracking, storage, or application submission. */
+/* Entry routing and telephone reception guidance. */
 (() => {
   'use strict';
 
@@ -29,6 +29,13 @@
 
   if (entryDialog) document.querySelectorAll('[data-open-guidance]').forEach((button) => {
     button.addEventListener('click', () => openDialog(entryDialog));
+  });
+
+  entryDialog?.querySelector('[data-select-new-route]')?.addEventListener('click', () => {
+    window.LP_CONTACT_ROUTE?.setIntent('new');
+    entryDialog.close();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    document.querySelector('#primary-web-cta')?.focus({ preventScroll: true });
   });
 
   const receptionClock = new Intl.DateTimeFormat('en-GB', {

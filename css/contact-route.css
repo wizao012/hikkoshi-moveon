@@ -1,0 +1,25 @@
+html.is-current-contract .contact-actions__button--phone,
+html.is-current-contract [data-phone-call],
+html.is-current-contract [data-sticky-phone],
+html.is-current-contract .form-phone,
+html.is-current-contract [data-application-phone],
+html.is-current-contract .contact-hours,
+html.is-current-contract .phone-guidance__schedule,
+html.is-current-contract a[href^="tel:050-5291-3072"],
+html.is-current-contract a[href^="tel:05052913072"],
+html.is-current-contract .contact-lead--standard,
+html.is-current-contract .contact-box {
+  display: none !important;
+}
+
+html.is-current-contract .sticky-cta {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.contact-lead--current {
+  display: none;
+}
+
+html.is-current-contract .contact-lead--current {
+  display: block;
+}

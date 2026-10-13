@@ -10,7 +10,7 @@ window.LP_CONFIG = Object.freeze({
   hours: '電話受付：10:00〜19:00',
   phoneHoursStart: 10,
   phoneHoursEnd: 19,
-  contractContactsUrl: 'https://hikkoshi-moveon.com/power-company-contacts/',
+  contractContactsUrl: '/power-company-contacts/?contact=current',
   heroTitle: '電気・ガスの\n引越し手続き',
   heroNote: '書類の記入や印鑑は不要です。',
   production: true,

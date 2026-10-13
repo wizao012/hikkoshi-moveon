@@ -2,6 +2,9 @@
 <html lang="ja">
 
 	<head>
+<script src="js/contact-route.js?v=1"></script>
+<link rel="stylesheet" href="css/contact-route.css?v=1">
+
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -55,7 +58,7 @@
   <section class="existing-contact" aria-labelledby="current-contract-title">
     <h2 id="current-contract-title">現在の電気のご契約について</h2>
     <p>料金・支払い・解約・契約変更は、ご契約中の会社へお問い合わせください。</p>
-    <a href="https://hikkoshi-moveon.com/power-company-contacts/" data-contract-contacts>電力会社の公式窓口一覧を見る</a>
+    <a href="/power-company-contacts/?contact=current" data-contract-contacts>電力会社の公式窓口一覧を見る</a>
   </section>
 <section class="top-flow">
 				<div class="top-flow__titleWrap">
@@ -132,7 +135,7 @@
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>停止している電気の再開も相談できますか？</span></summary>
-  <div class="faq-answer">新居で新しく利用を始める場合は、こちらの窓口へご相談ください。支払いの遅れなどで現在の契約が停止している場合は、その契約先に再開方法をご確認ください。<a href="https://hikkoshi-moveon.com/power-company-contacts/" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
+  <div class="faq-answer">新居で新しく利用を始める場合は、こちらの窓口へご相談ください。支払いの遅れなどで現在の契約が停止している場合は、その契約先に再開方法をご確認ください。<a href="/power-company-contacts/?contact=current" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>賃貸マンションやアパートでも申し込めますか？</span></summary>
@@ -148,7 +151,7 @@
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>清掃や内覧のために、数日だけ電気を使えますか？</span></summary>
-  <div class="faq-answer">短い期間の利用でも、使用開始の契約が必要です。利用期間や停止日、料金・解約条件を契約先に確認してください。既存契約の窓口一覧もご利用いただけます。<a href="https://hikkoshi-moveon.com/power-company-contacts/" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
+  <div class="faq-answer">短い期間の利用でも、使用開始の契約が必要です。利用期間や停止日、料金・解約条件を契約先に確認してください。既存契約の窓口一覧もご利用いただけます。<a href="/power-company-contacts/?contact=current" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>引越し前の家の電気停止も、まとめて依頼できますか？</span></summary>
@@ -156,11 +159,11 @@
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>今、どの電力会社と契約しているかわからない場合は？</span></summary>
-  <div class="faq-answer">電気料金の請求書、契約時のメール、口座やカードの明細などで契約先をご確認ください。建物側で契約している場合は、管理会社・貸主へお問い合わせください。<a href="https://hikkoshi-moveon.com/power-company-contacts/" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
+  <div class="faq-answer">電気料金の請求書、契約時のメール、口座やカードの明細などで契約先をご確認ください。建物側で契約している場合は、管理会社・貸主へお問い合わせください。<a href="/power-company-contacts/?contact=current" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>料金の支払い・解約・名義変更も、こちらで手続きできますか？</span></summary>
-  <div class="faq-answer">現在の契約に関する支払い、解約、名義や支払い方法の変更は、ご契約中の会社が窓口です。請求書などで契約先を確認して直接お問い合わせください。<a href="https://hikkoshi-moveon.com/power-company-contacts/" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
+  <div class="faq-answer">現在の契約に関する支払い、解約、名義や支払い方法の変更は、ご契約中の会社が窓口です。請求書などで契約先を確認して直接お問い合わせください。<a href="/power-company-contacts/?contact=current" data-contract-contacts>電力会社の公式窓口一覧を確認する</a></div>
 </details>
 <details class="faq-item">
   <summary class="faq-question"><span class="faq-question__mark" aria-hidden="true">Q</span><span>新居の電気料金プランは選べますか？</span></summary>
@@ -202,21 +205,16 @@
         <h2 class="guidance-dialog__title" id="entry-guidance-title">ご希望のお手続きに合わせて<br><span>ご案内します</span></h2>
         <p class="guidance-dialog__lead" id="entry-guidance-lead">該当するお手続きをお選びください</p>
         <div class="guidance-dialog__options">
-    <div class="guidance-new-route">
-      <span class="guidance-option__label">引越し・新居の方</span>
-      <h3>電気・ガスの開始手続き</h3>
-      <div class="contact-actions contact-actions--dialog">
-      <a class="contact-actions__button" href="./form/" autofocus><strong>Webで開始手続き</strong><small>365日24時間受付</small></a>
-      <a class="contact-actions__button contact-actions__button--phone" href="tel:050-5291-3072" data-phone-call><strong>電話で開始手続き</strong><small data-phone-number>050-5291-3072</small></a>
-    </div>
-      <p class="contact-hours" data-phone-hours>電話受付：10:00〜19:00</p>
-    </div>
-    <a class="guidance-option guidance-option--current" href="https://hikkoshi-moveon.com/power-company-contacts/" data-contract-contacts>
+    <button class="guidance-option guidance-option--new" type="button" data-select-new-route autofocus>
+      <span class="guidance-option__icon" aria-hidden="true"><img src="./img/denki.svg" alt=""></span>
+      <span class="guidance-option__copy"><span class="guidance-option__label">引越し・新居の方</span><strong>電気・ガスの開始手続き</strong><small>新しく電気・ガスを使い始める方</small></span>
+    </button>
+    <a class="guidance-option guidance-option--current" href="/power-company-contacts/?contact=current" data-contract-contacts>
       <span class="guidance-option__icon" aria-hidden="true"><img src="./img/syorui.png" alt=""></span>
-      <span class="guidance-option__copy"><span class="guidance-option__label">現在のご契約について</span><strong>料金・支払い・解約など</strong><small>電力会社の公式窓口一覧へ</small></span>
+      <span class="guidance-option__copy"><span class="guidance-option__label">すでにご契約中の方</span><strong>現在のご契約について</strong><small>料金・支払い・解約・契約変更など</small></span>
     </a>
   </div>
-  <p class="guidance-dialog__note">現在の電気契約については、ご契約中の会社へ直接お問い合わせください。</p>
+  <p class="guidance-dialog__note">現在のご契約に関するお問い合わせは、各社の公式Web窓口へご案内します。</p>
       </div>
     </dialog>
     <dialog class="guidance-dialog" id="phone-guidance" aria-labelledby="phone-guidance-title" aria-describedby="phone-guidance-lead">
@@ -230,11 +228,11 @@
       </div>
     </dialog>
 
-			<script src="./js/site-config.js?v=4" defer></script>
+			<script src="./js/site-config.js?v=5" defer></script>
 		<script src="./js/production.js?v=1" defer></script>
 <script src="./js/browser-state.js?v=2" defer></script>
 <script src="./js/app.js?v=5" defer></script>
-		<script src="./js/guidance.js?v=3" defer></script>
+		<script src="./js/guidance.js?v=4" defer></script>
 	<script src="./js/analytics.js?v=1" defer></script>
 </body>
 
