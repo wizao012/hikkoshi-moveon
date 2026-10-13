@@ -23,3 +23,10 @@ html.is-current-contract .sticky-cta {
 html.is-current-contract .contact-lead--current {
   display: block;
 }
+
+.temporary-notice { display: none; }
+html.is-temporary-use .temporary-notice { display: block; margin: 18px auto; padding: 14px 16px; border: 1px solid #edd3a9; border-radius: 14px; color: var(--fresh-ink); background: #fff8ea; font-size: 13px; line-height: 1.7; }
+.temporary-notice strong { color: #9f5b09; }
+.temporary-notice p { margin-top: 6px; }
+.top-mainVisual > .temporary-notice { width: calc(100% - 40px); max-width: 510px; }
+.form-page > .temporary-notice, .confirm-page > .temporary-notice { width: min(calc(100% - 32px), 710px); }

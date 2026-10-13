@@ -31,12 +31,14 @@
     button.addEventListener('click', () => openDialog(entryDialog));
   });
 
-  entryDialog?.querySelector('[data-select-new-route]')?.addEventListener('click', () => {
-    window.LP_CONTACT_ROUTE?.setIntent('new');
+  const selectApplicationRoute = (intent) => {
+    window.LP_CONTACT_ROUTE?.setIntent(intent);
     entryDialog.close();
     window.scrollTo({ top: 0, behavior: 'instant' });
     document.querySelector('#primary-web-cta')?.focus({ preventScroll: true });
-  });
+  };
+  entryDialog?.querySelector('[data-select-new-route]')?.addEventListener('click', () => selectApplicationRoute('new'));
+  entryDialog?.querySelector('[data-select-temporary-route]')?.addEventListener('click', () => selectApplicationRoute('temporary'));
 
   const receptionClock = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Tokyo', hour: '2-digit', hourCycle: 'h23',

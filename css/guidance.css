@@ -286,3 +286,13 @@
     filter: brightness(1.04);
   }
 }
+
+/* Short-period electricity routing. */
+.guidance-dialog { overflow-y: auto; }
+.guidance-option--temporary { border-color: #e8cc9f; border-left-color: #ed9a25; background: linear-gradient(135deg, #fff, #fffaf0); box-shadow: 0 3px 0 #ead8bc; }
+.guidance-option--temporary .guidance-option__icon { height: 52px; border-radius: 50%; color: #ee8a0a; background: #fff0da; }
+.guidance-option--temporary svg { width: 30px; height: 30px; }
+.guidance-option--temporary svg, .guidance-option--temporary svg * { color: #ee8a0a; }
+.guidance-option--temporary strong { font-size: 18px; }
+.guidance-option--temporary .guidance-option__purpose { color: #d6583f; font-weight: 700; }
+.guidance-option__arrow { margin-left: auto; flex: 0 0 auto; color: #dc5849; font-size: 30px; line-height: 1; }

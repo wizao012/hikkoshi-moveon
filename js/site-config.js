@@ -1,8 +1,8 @@
 /* Change these shared values after reviewing the baseline preview. */
 window.LP_CONFIG = Object.freeze({
-  brand: '引越し手続き',
-  brandSubtitle: '電気・ガス開始受付センター',
-  contactCenter: '引越し手続き受付窓口',
+  brand: '電気・ガス手続き',
+  brandSubtitle: '電気やガスの開始・開通',
+  contactCenter: '電気やガスの開始・開通受付窓口',
   operatorName: '株式会社引越しワンストップ',
   operatorUrl: 'https://hikkoshi-1sp.jp/',
   phone: '050-5291-3072',
@@ -11,7 +11,7 @@ window.LP_CONFIG = Object.freeze({
   phoneHoursStart: 10,
   phoneHoursEnd: 19,
   contractContactsUrl: '/power-company-contacts/?contact=current',
-  heroTitle: '電気・ガスの\n引越し手続き',
+  heroTitle: '電気やガスの\n開始・開通',
   heroNote: '書類の記入や印鑑は不要です。',
   production: true,
   allowedHosts: ['hikkoshi-moveon.com', 'www.hikkoshi-moveon.com'],

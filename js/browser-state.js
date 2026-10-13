@@ -21,12 +21,21 @@
       landingPageUrl: current.href, referrer: document.referrer,
       routeMode: validRoute ? current.searchParams.get('route') : 'normal',
       ...Object.fromEntries(runtime.trackingKeys.map((key) => [key, current.searchParams.get(key) || ''])),
-    } : previous;
+  } : previous;
   if (validRoute) attribution.routeMode = current.searchParams.get('route');
+  const contactIntent = window.LP_CONTACT_ROUTE?.getIntent?.();
+  if (['new', 'current', 'temporary'].includes(contactIntent)) {
+    attribution.routeMode = { new: 'normal', current: 'other', temporary: 'temporary' }[contactIntent];
+  }
   write(attributionKey, attribution);
   window.LP_BROWSER = {
     attribution,
     onProductionHost: (config.allowedHosts || []).includes(window.location.hostname),
+    setRouteMode: (routeMode) => {
+      if (!['normal', 'temporary', 'other'].includes(routeMode)) return;
+      attribution.routeMode = routeMode;
+      write(attributionKey, attribution);
+    },
     saveReceipt: (receipt) => write(receiptKey, receipt),
     record: (event, details) => {
       if (!(config.allowedHosts || []).includes(window.location.hostname)) return;
