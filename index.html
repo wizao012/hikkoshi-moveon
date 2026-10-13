@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="./css/fonts.css">
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/fresh.css?v=3">
-		<link rel="stylesheet" href="./css/guidance.css?v=3">
+		<link rel="stylesheet" href="./css/guidance.css?v=4">
 		<link rel="stylesheet" href="./css/conversion.css?v=2">
 		<link rel="stylesheet" href="./css/operator.css?v=2">
 <link rel="canonical" href="https://hikkoshi-moveon.com/">
@@ -203,21 +203,23 @@
       <div class="guidance-dialog__inner">
         <button class="guidance-dialog__close" type="button" data-close-guidance aria-label="案内を閉じる"></button>
         <p class="guidance-dialog__kicker">電気やガスの開始・開通</p>
-        <h2 class="guidance-dialog__title" id="entry-guidance-title">ご希望のお手続きに合わせて<br><span>ご案内します</span></h2>
+        <h2 class="guidance-dialog__title" id="entry-guidance-title" tabindex="-1" autofocus>ご希望のお手続きに合わせて<br><span>ご案内します</span></h2>
         <p class="guidance-dialog__lead" id="entry-guidance-lead">該当するお手続きをお選びください</p>
         <div class="guidance-dialog__options">
-    <button class="guidance-option guidance-option--new" type="button" data-select-new-route autofocus>
-      <span class="guidance-option__icon" aria-hidden="true"><img src="./img/denki.svg" alt=""></span>
-      <span class="guidance-option__copy"><span class="guidance-option__label">新しく利用を始める方</span><strong>電気やガスの開始・開通</strong><small>引越し・新居などで利用を始める方</small></span>
+    <button class="guidance-option guidance-option--new" type="button" data-select-new-route>
+      <span class="guidance-option__icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M11 22c0-3-4-4-4-10a9 9 0 0 1 18 0c0 6-4 7-4 10m-10 0h10m-9 4h8m-7 3h6M13 12l3 3 3-3m-3 3v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="guidance-option__copy"><span class="guidance-option__label">新しく利用を始める方</span><strong>電気やガスの開始・開通</strong><small><span class="guidance-option__accent">引越し・新居など</span>で利用を始める方</small></span>
+      <span class="guidance-option__arrow" aria-hidden="true">›</span>
     </button>
     <button class="guidance-option guidance-option--temporary" type="button" data-select-temporary-route>
       <span class="guidance-option__icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M10 7V4m12 3V4M6 12h20M8 7h16a2 2 0 0 1 2 2v17H6V9a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m18 14-5 7h4l-2 5 6-8h-4l1-4Z" fill="currentColor"/></svg></span>
-      <span class="guidance-option__copy"><strong>数日・1日のみ<br>通電をご希望の方</strong><small><span class="guidance-option__purpose">ハウスクリーニング・物件清掃・空き家管理</span>など短期間のご利用</small></span>
+      <span class="guidance-option__copy"><span class="guidance-option__label">数日・1日のみ</span><strong>通電をご希望の方</strong><small><span class="guidance-option__accent">ハウスクリーニング</span>・物件清掃・空き家管理など短期間のご利用</small></span>
       <span class="guidance-option__arrow" aria-hidden="true">›</span>
     </button>
     <a class="guidance-option guidance-option--current" href="/power-company-contacts/?contact=current" data-contract-contacts>
-      <span class="guidance-option__icon" aria-hidden="true"><img src="./img/syorui.png" alt=""></span>
-      <span class="guidance-option__copy"><span class="guidance-option__label">すでにご契約中の方</span><strong>現在のご契約について</strong><small>料金・支払い・解約・契約変更など</small></span>
+      <span class="guidance-option__icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M8 4h12l5 5v19H8V4Zm12 0v6h5M12 14h9m-9 5h9m-9 5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="guidance-option__copy"><span class="guidance-option__label">すでにご契約中の方</span><strong>現在のご契約について</strong><small><span class="guidance-option__accent">料金・支払い・解約</span>・契約変更など</small></span>
+      <span class="guidance-option__arrow" aria-hidden="true">›</span>
     </a>
   </div>
   <p class="guidance-dialog__note">現在のご契約に関するお問い合わせは、各社の公式Web窓口へご案内します。</p>
