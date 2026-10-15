@@ -5,16 +5,6 @@
   margin: auto;
   padding: 24px 0 18px;
 }
-.hero-area {
-  width: fit-content;
-  margin: 0 auto 16px;
-  padding: 5px 18px;
-  border-radius: 50px;
-  color: var(--fresh-blue-dark);
-  background: #fff;
-  font-size: 13px;
-  font-weight: 700;
-}
 .top-mainVisual__imgs { gap: 44px; }
 .top-mainVisual__img { width: 50px; }
 .top-mainVisual__titleWrap { margin-top: 18px; }
@@ -234,7 +224,7 @@
   .top-mainVisual { padding-top: 38px; }
   .top-mainVisual__imgs { gap: 70px; }
   .top-mainVisual__img { width: 65px; }
-  .top-mainVisual__title { font-size: 32px; white-space: normal; }
+  .top-mainVisual__title { font-size: 32px; white-space: pre-line; }
   .hero-contact { padding: 22px 24px 16px; }
   .contact-actions__button strong { font-size: 22px; }
   .contact-actions__button small { font-size: 16px; }
