@@ -45,7 +45,7 @@
   });
   const isReceptionOpen = () => {
     const hour = Number(receptionClock.format(new Date()));
-    return hour >= (config.phoneHoursStart ?? 10) && hour < (config.phoneHoursEnd ?? 19);
+    return hour >= (config.phoneHoursStart ?? 9) && hour < (config.phoneHoursEnd ?? 19);
   };
   const stickyPhone = sticky?.querySelector('[data-sticky-phone]');
   if (stickyPhone && config.phone) {
