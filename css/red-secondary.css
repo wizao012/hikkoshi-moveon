@@ -37,7 +37,15 @@
 .form-page__noteWrap { max-width: 710px; }
 .form-page__noteWrap > p { color: var(--muted); font-size: .875rem; line-height: 1.8; }
 .form-page__formLabelWrap { align-items: center; gap: 12px; }
-.form-page__formLabelWrap > img { flex: 0 0 auto; width: 36px; }
+.form-page__formLabelWrap > img {
+  flex: 0 0 auto;
+  width: 36px;
+  height: auto;
+  padding: 6px;
+  border: 1px solid var(--accent-rim);
+  border-radius: 50%;
+  background: #fff;
+}
 .form-page__formLabel {
   min-width: 0;
   margin-left: 0;
@@ -131,7 +139,7 @@
   min-height: 46px;
   padding: 11px 24px;
   border: 1px solid var(--accent-dark);
-  border-radius: 9px;
+  border-radius: 999px;
   color: var(--accent-dark);
   background: #fff;
   font-size: .9375rem;
@@ -196,21 +204,27 @@
   min-height: 56px;
   padding: 16px 24px;
   border: 2px solid var(--accent);
-  border-radius: 12px;
+  border-radius: 999px;
   color: var(--accent-dark);
   background: var(--accent-soft);
-  box-shadow: none;
+  box-shadow: 0 4px 0 var(--button-shadow);
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.5;
 }
 .form-page .form-page__confirmationBtn { width: 100%; }
+.form-page .form-page__confirmationBtn,
+.confirm-page__btn:not(.confirm-page__btn--back) {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: none;
+}
 .form-phone { margin-top: 24px; border-color: var(--line); border-radius: 16px; box-shadow: none; }
 .form-phone__label { color: var(--ink); font-size: .875rem; line-height: 1.75; }
-.form-phone__button { min-height: 64px; padding: 12px; border: 1px solid #b9bbc3; border-radius: 12px; background: #fff; }
-.form-phone__button strong { color: var(--ink); font-size: 1.125rem; }
-.form-phone__button small { color: var(--ink); font-size: 1rem; }
-.form-phone__hours { color: var(--muted); font-size: .875rem; }
+.form-phone__button { min-height: 64px; padding-block: 10px; }
+.form-phone__button strong { color: inherit; font-size: clamp(.875rem, 4.2vw, 1.125rem); }
+.form-phone__button small { color: inherit; font-size: 1rem; }
+.form-phone__hours { margin-top: 12px; color: var(--muted); font-size: .875rem; }
 .confirm-page__txt,
 .thanks-page__txt { color: var(--ink); font-size: 1rem; line-height: 1.9; }
 .confirm-page__detailWrap { margin-top: 24px; }
@@ -219,7 +233,7 @@
 .confirm-page__detailInfo { height: auto; min-width: 0; margin-top: 6px; color: var(--ink); font-size: 1rem; font-weight: 700; line-height: 1.75; overflow-wrap: anywhere; }
 .confirm-page__btnWrap { width: 100%; max-width: 480px; margin-top: 30px; gap: 12px; }
 .confirm-page__btn { width: 100%; max-width: none; }
-.confirm-page__btn--back { min-height: 56px; padding: 16px 24px; border: 1px solid #bda6a0; border-radius: 12px; color: var(--muted); background: #fff; box-shadow: none; font-size: 1rem; }
+.confirm-page__btn--back { min-height: 56px; padding: 16px 24px; border: 1px solid #bda6a0; border-radius: 999px; color: var(--muted); background: #fff; box-shadow: none; font-size: 1rem; }
 .thanks-receipt { padding: 20px; border-color: var(--line); border-radius: 12px; color: var(--ink); background: var(--accent-soft); font-size: 1rem; line-height: 1.8; }
 .thanks-receipt dt { color: var(--accent-ink); font-size: .875rem; }
 .thanks-receipt dd:last-child { margin-bottom: 0; }
@@ -340,7 +354,11 @@ body:has(> .site-header) a:focus-visible { outline: 2px solid var(--accent-dark)
   .confirm-page__btn--back:hover,
   body:has(> .site-header) .jump-nav a:hover { background: var(--accent-soft); }
   .form-page__confirmationBtn.active:hover,
-  .confirm-page__btn:not(.confirm-page__btn--back):not(:disabled):hover,
+  .confirm-page__btn:not(.confirm-page__btn--back):not(:disabled):hover {
+    border-color: var(--accent-dark);
+    background: var(--accent-dark);
+    filter: none;
+  }
   .thanks-page__btn:hover,
   body:has(> .site-header) .official-links a:first-child:hover,
   body:has(> .site-header) .return-button:hover { background: #ffdfda; border-color: var(--accent-dark); filter: none; }
